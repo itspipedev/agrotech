@@ -75,7 +75,7 @@ body,
   width: 100%;
   padding: 12px 14px;
   border: 1px solid #e5ece7;
-  border-radius: 10px;
+  border-radius: 15px;
   background: #fff;
   color: var(--text);
   outline: none;
@@ -143,6 +143,10 @@ body,
 }
 .logo.tic.large {
   height: 100px;
+}
+.logo.tic.forgot {
+  height: 100px;
+  margin-bottom: 50px;
 }
 
 /* --- Estilos de la Landing Page --- */
@@ -331,4 +335,49 @@ margin: 2rem;
 
 .btn-comenzar{
   margin-right: 10px;
+}
+
+
+/* --- Estilos Adicionales --- */
+.auth-panel {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+}
+
+.back-button {
+  top: -40px;
+  left: 0;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--muted);
+  padding: 0 10px;
+}
+.back-button:hover {
+  color: var(--text);
+}
+
+.hero-text-overlay {
+  position: absolute;
+  bottom: 40%;
+  left: 50%;
+  transform: translateX(-50%); 
+  color: white;
+  width: 70%;      
+  max-width: 800px;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+}
+
+
+.hero-text-overlay__title {
+  font-size: 3.8rem;
+  margin: 0 0 0.5rem 0;
+}
+.hero-text-overlay__subtitle {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  margin: 0;
 }
