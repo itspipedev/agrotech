@@ -9,7 +9,7 @@ function ForgotPasswordPage({ onNavigate }: { onNavigate: (v: View) => void }) {
       heroSubtitle="Escribe tu correo y te enviaremos un enlace para restablecer tu contraseña."
       onBack={() => onNavigate('auth')}
     >
-      <ForgotPasswordForm onSubmit={() => onNavigate('reset-password')} />
+      <ForgotPasswordForm onSubmit={() => onNavigate('verify-code')} />
     </AuthTemplate>
   );
 }
