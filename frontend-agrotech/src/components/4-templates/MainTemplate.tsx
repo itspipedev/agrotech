@@ -7,11 +7,12 @@ function MainTemplate({ onLoginClick }: { onLoginClick: () => void }) {
     <div className="landing-template">
       <Header onLoginClick={onLoginClick} />
       <main>
-        <Hero />
+        <Hero onLoginClick={onLoginClick} />
         <Features />
       </main>
     </div>
   );
 }
+
 
 export default MainTemplate;
