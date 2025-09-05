@@ -1,11 +1,11 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import svgr from 'vite-plugin-svgr' // Importa el plugin
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  server: {
-    host: '0.0.0.0',
-    port: 5000,
-  },
+  plugins: [
+    react(),
+    svgr(), // Añade el plugin aquí
+  ],
 })

@@ -1,0 +1,399 @@
+
+:root {
+  --bg: #0b0f13;
+  --panel: #ffffff;
+  --text: #0e0a12;
+  --muted: #5b6a60;
+  --primary: #16a34a;
+  --primary-700: #15803d;
+  --ring: rgba(22, 163, 74, 0.25);
+  --error: #dc2626;
+  --header-bg: rgba(255, 255, 255, 0.9);
+  --text-dark: #333;
+  --sidebar-bg: #ffffff;
+  --sidebar-width: 260px;
+  --sidebar-width-collapsed: 80px;
+  --header-height: 70px;
+  --content-bg: #f4f7fc;
+  --text-primary: #1a202c;
+  --text-secondary: #718096;
+  --border-color: #e2e8f0;
+  --accent-color: #4caf50;
+  --accent-color-light: #e8f5e9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%; /* Cambiado de height a min-height */
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--content-bg);
+}
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+}
+
+.hero-login {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.panel {
+  background: var(--panel);
+  display: grid;
+  place-items: center;
+  padding: 32px clamp(16px, 4vw, 48px);
+}
+
+.field input,
+.field select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #e5ece7;
+  border-radius: 15px;
+  background: #fff;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.landing-template {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--header-bg);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.hero-landing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 70vh;
+  padding: 2rem;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  margin-top: 70px;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--panel);
+  transform: translateY(-80px);
+  border-radius: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.auth-panel {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--muted);
+  padding: 0;
+  z-index: 10;
+}
+
+.hero-text-overlay {
+  position: absolute;
+  bottom: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  width: 70%;
+  max-width: 800px;
+  text-align: left;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh; /* Cambiado de height a min-height */
+}
+
+.dashboard-main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Eliminado overflow: hidden */
+}
+
+.dashboard-page-content {
+  flex-grow: 1;
+  padding: 2rem;
+  overflow-y: visible; /* Cambiado de auto a visible */
+}
+
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid var(--border-color);
+  transition: width 0.3s ease-in-out;
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+}
+
+.sidebar.collapsed {
+  width: var(--sidebar-width-collapsed);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  margin: 0.5rem 1rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.sidebar-nav-item.active {
+  background-color: var(--accent-color-light);
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+.dashboard-header {
+  height: var(--header-height);
+  background-color: var(--sidebar-bg);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  flex-shrink: 0;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn.primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn.primary:hover {
+  background: var(--primary-700);
+}
+
+.link {
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.muted {
+  color: var(--muted);
+  text-align: center;
+}
+
+/* === ESTILOS DEL MÓDULO CULTIVOS === */
+.page-container {
+  padding: 1.5rem;
+}
+
+.page-header {
+  margin-bottom: 1.5rem;
+}
+
+.page-header h2 {
+  font-size: 1.75rem;
+  color: var(--text-primary);
+}
+
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--primary);
+  font-size: 1.5rem;
+}
+
+.stat-card-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-card-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.stat-card-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.tabs-nav {
+  display: flex;
+  gap: 0.5rem;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 0.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.tab-item {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  background-color: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all 0.2s;
+}
+
+.tab-item.active {
+  background-color: var(--accent-color-light);
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-container,
+.cultivos-list-container {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.cultivo-form h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.input-field {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.cultivos-list-container h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.cultivos-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cultivo-card {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.cultivo-card h4 {
+  margin: 0 0 0.5rem 0;
+}
